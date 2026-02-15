@@ -1,5 +1,6 @@
 from utils import generate_random_integer_lists
-def bubble_sort(data):
+def bubble_sort(data_to_sort):
+    data = data_to_sort.copy()
     # repeatedly swap adjacent elements to put largest elements towards the end
     for i in range(0, len(data)):
         for j in range(0, len(data) - i): # After each iteration, one element will move to its correct spot at the end
@@ -10,11 +11,10 @@ def bubble_sort(data):
                 data[j+1] = j_original
     return data
 
-
 def main():
     num_tests = 1000
     test_data = generate_random_integer_lists(num_tests)
-
+    
     tests_passed = 0
     for i in range(0, len(test_data)):
         if (bubble_sort(test_data[i]) == sorted(test_data[i])):
